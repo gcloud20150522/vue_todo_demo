@@ -23,11 +23,7 @@ export default {
   },
   data(){
     return{
-      todos:[
-        {title:'吃饭',completed:false},
-        {title:'睡觉',completed:true},
-        {title:'撸码',completed:false},
-      ]
+      todos:[],
     }
   },
   methods:{
@@ -56,23 +52,18 @@ export default {
     
 
   },
-  // computed:{
-  //     selectAll:{
-  //       get(check){
-  //         // this.todos.forEach(todo=>{
-  //         //   return todo.computed==true;
-  //         // })
-  //         return true
-  //       },
-  //       set(value){
-  //         if(vale){
-  //           this.todos.forEach(todo=>{
-  //             todo.completed=true;
-  //           })
-  //         }
-  //       }
-  //     }
-  //   }
+  watch:{
+    todos:{
+      deep:true,
+      handler:function(value,oldvalue){
+        localStorage.setItem('todo_data',JSON.stringify(value));
+      }
+
+    }
+  },
+  mounted(){
+    this.todos=JSON.parse(localStorage.getItem('todo_data'));
+  }
   
 }
 </script>
