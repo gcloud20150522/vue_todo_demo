@@ -23,7 +23,7 @@ export default {
   },
   data(){
     return{
-      todos:[],
+      todos:JSON.parse(localStorage.getItem('todo_data') || '[]'), 
     }
   },
   methods:{
@@ -62,7 +62,7 @@ export default {
     }
   },
   mounted(){
-    this.todos=JSON.parse(localStorage.getItem('todo_data'));
+    // this.todos=JSON.parse(localStorage.getItem('todo_data'));
   }
   
 }

@@ -29,7 +29,7 @@ export default {
       //key2:数组的reduce方法
       return this.todos.reduce((pretatal,todo)=>{
         return pretatal+(todo.completed==true?1:0)
-      },0)
+      },0);
     },
     check:{
       // get:function(){
